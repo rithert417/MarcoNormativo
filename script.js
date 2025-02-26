@@ -64,3 +64,42 @@ document.addEventListener("DOMContentLoaded", function () {
     // Llamar a la función para generar la línea de tiempo
     generateTimeline();
 });
+    // Lista de normas relacionadas con los LMP
+    const normasLMP = [
+        {
+            nombre: "Decreto Supremo 010-2018-MINAM",
+            descripcion: "Establece los Límites Máximos Permisibles (LMP) para efluentes de actividades industriales.",
+            archivo: "DS_010_2018_MINAM.pdf"
+        },
+        {
+            nombre: "Resolución Ministerial 235-2019-MINAM",
+            descripcion: "Modifica los valores límite de vertimientos en cuerpos de agua.",
+            archivo: "RM_235_2019_MINAM.pdf"
+        },
+        {
+            nombre: "Decreto Supremo 007-2017-VIVIENDA",
+            descripcion: "Regulación de LMP en el sector saneamiento.",
+            archivo: "DS_007_2017_VIVIENDA.pdf"
+        }
+    ];
+
+    // Crear lista de normas
+    let list = document.createElement("ul");
+    normasLMP.forEach(norma => {
+        let listItem = document.createElement("li");
+
+        let link = document.createElement("a");
+        link.href = `normas/${norma.archivo}`;
+        link.textContent = norma.nombre;
+        link.target = "_blank";
+
+        let descripcion = document.createElement("p");
+        descripcion.textContent = norma.descripcion;
+
+        listItem.appendChild(link);
+        listItem.appendChild(descripcion);
+        list.appendChild(listItem);
+    });
+
+    container.appendChild(list);
+});
