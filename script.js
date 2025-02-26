@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 📌 CÓDIGO PARA LA LÍNEA DE TIEMPO
+    // 📌 CÓDIGO PARA LA LÍNEA DE TIEMPO INTERACTIVA
     let timelineContainer = document.getElementById("timeline");
 
     if (timelineContainer) {
@@ -32,83 +32,39 @@ document.addEventListener("DOMContentLoaded", function () {
             "2024": ["DS_001_2024_MIDAGRI.pdf"]
         };
 
-        // Función para generar la línea de tiempo
-        function generateTimeline() {
-            Object.keys(normasPorAnio).sort().forEach(year => {
-                let yearBlock = document.createElement("div");
-                yearBlock.classList.add("timeline-year");
+        // Generar la línea de tiempo
+        Object.keys(normasPorAnio).sort().forEach(year => {
+            let yearBlock = document.createElement("div");
+            yearBlock.classList.add("timeline-year");
 
-                let yearTitle = document.createElement("h3");
-                yearTitle.textContent = year;
-                yearBlock.appendChild(yearTitle);
+            let yearTitle = document.createElement("h3");
+            yearTitle.textContent = year;
+            yearTitle.classList.add("year-title");
+            yearBlock.appendChild(yearTitle);
 
-                let list = document.createElement("ul");
-                normasPorAnio[year].forEach(file => {
-                    let listItem = document.createElement("li");
-                    let link = document.createElement("a");
-                    link.href = `normas/${file}`;
-                    link.textContent = file.replace(/_/g, " ").replace(".pdf", "");
-                    link.target = "_blank";
-                    listItem.appendChild(link);
-                    list.appendChild(listItem);
-                });
+            let list = document.createElement("ul");
+            list.classList.add("normas-list");
+            list.style.display = "none";
 
-                yearBlock.appendChild(list);
-                timelineContainer.appendChild(yearBlock);
+            normasPorAnio[year].forEach(file => {
+                let listItem = document.createElement("li");
+                let link = document.createElement("a");
+                link.href = `normas/${file}`;
+                link.textContent = file.replace(/_/g, " ").replace(".pdf", "");
+                link.target = "_blank";
+                listItem.appendChild(link);
+                list.appendChild(listItem);
             });
-        }
 
-        // Llamar a la función para generar la línea de tiempo
-        generateTimeline();
+            yearBlock.appendChild(list);
+            timelineContainer.appendChild(yearBlock);
+
+            // Evento para expandir/cerrar normas al hacer clic en el año
+            yearTitle.addEventListener("click", function () {
+                list.style.display = (list.style.display === "none") ? "block" : "none";
+            });
+        });
     } else {
         console.error("El contenedor 'timeline' no se encontró en el HTML.");
-    }
-
-    // 📌 CÓDIGO PARA LAS NORMAS LMP
-    let lmpContainer = document.getElementById("lmp-container");
-
-    if (lmpContainer) {
-        lmpContainer.innerHTML = ""; // Limpiar contenido anterior
-
-        // Lista de normas relacionadas con los LMP
-        const normasLMP = [
-            {
-                nombre: "Decreto Supremo 010-2018-MINAM",
-                descripcion: "Establece los Límites Máximos Permisibles (LMP) para efluentes de actividades industriales.",
-                archivo: "DS_010_2018_MINAM.pdf"
-            },
-            {
-                nombre: "Resolución Ministerial 235-2019-MINAM",
-                descripcion: "Modifica los valores límite de vertimientos en cuerpos de agua.",
-                archivo: "RM_235_2019_MINAM.pdf"
-            },
-            {
-                nombre: "Decreto Supremo 007-2017-VIVIENDA",
-                descripcion: "Regulación de LMP en el sector saneamiento.",
-                archivo: "DS_007_2017_VIVIENDA.pdf"
-            }
-        ];
-
-        // Crear lista de normas
-        let list = document.createElement("ul");
-        normasLMP.forEach(norma => {
-            let listItem = document.createElement("li");
-
-            let link = document.createElement("a");
-            link.href = `normas/${norma.archivo}`;
-            link.textContent = norma.nombre;
-            link.target = "_blank";
-
-            let descripcion = document.createElement("p");
-            descripcion.textContent = norma.descripcion;
-
-            listItem.appendChild(link);
-            listItem.appendChild(descripcion);
-            list.appendChild(listItem);
-        });
-
-        lmpContainer.appendChild(list);
-    } else {
-        console.error("El contenedor 'lmp-container' no se encontró en el HTML.");
     }
 });
