@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,16 +6,18 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Estilos del encabezado */
 header {
     background-color: #333;
     color: white;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    text-align: center;
 }
 
 nav ul li {
@@ -25,4 +28,69 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor principal */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Botón de la Línea de Tiempo */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para la línea de tiempo */
+.timeline {
+    position: relative;
+    margin: 20px 0;
+    padding-left: 20px;
+    border-left: 3px solid #007bff;
+}
+
+.timeline-item {
+    margin: 10px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.timeline-item a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos del pie de página */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
 }
