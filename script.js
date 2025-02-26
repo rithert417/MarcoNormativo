@@ -1,3 +1,4 @@
+container.innerHTML = ""; // Limpiar el contenido anterior
 // Lista de normas con sus respectivos años
 const normasPorAnio = {
     "1902": ["Codigo-de-Aguas-de-1902.pdf"],
