@@ -186,31 +186,37 @@ footer {
     margin-top: 5px;
 }
 
+
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #333;
-    padding: 15px;
+    padding: 10px 20px;
     color: white;
 }
 
 h1 {
-    flex-grow: 1; /* Permite que el título ocupe el espacio necesario */
+    flex-grow: 1;
     text-align: center;
+    font-size: 24px; /* Ajusta el tamaño del título si es necesario */
 }
 
 .logo-container {
-    width: 60px; /* Ajusta el tamaño según el logo */
+    width: 80px; /* Ajusta el tamaño según el logo */
+    height: auto;
 }
 
 .logo {
     width: 100%;
     height: auto;
+    max-height: 60px; /* Ajusta esta altura según necesites */
 }
 
+
+
 .header {
-    background-image: url('ruta-de-tu-imagen.jpg'); /* Cambia esto por la ruta real */
+    background-image: url('img/fondo.jpg'); /img/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
