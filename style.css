@@ -209,14 +209,23 @@ body::before {
     z-index: -1; /* Coloca la capa detrás del contenido */
 }
 
-/* Estilos para el header */
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Estilos del encabezado */
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #333; /* Color sólido para el header */
-    padding: 10px 20px;
+    background-color: #333;
+    padding: 15px;
     color: white;
+    text-align: center;
     position: relative;
 }
 
@@ -226,18 +235,19 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    max-width: 900px;
 }
 
 /* Estilos para los logos */
 .logo-container {
-    width: 80px; /* Tamaño del logo */
+    width: 80px;
     height: auto;
 }
 
 .logo {
     width: 100%;
     height: auto;
-    max-height: 60px; /* Ajusta la altura máxima */
+    max-height: 60px;
 }
 
 /* Estilos para el título "Marco Normativo" */
@@ -249,31 +259,32 @@ h1 {
 }
 
 /* Estilos para la barra de navegación */
-.navbar {
-    display: flex;
-    justify-content: center;
+nav {
     width: 100%;
-    margin-top: 5px; /* Espacio entre el título y la barra */
+    max-width: 900px;
+    margin-top: 10px;
 }
 
-.navbar ul {
+nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 20px; /* Espaciado entre los enlaces */
+    justify-content: center;
+    gap: 20px;
 }
 
-.navbar ul li {
+nav ul li {
     display: inline;
 }
 
-.navbar ul li a {
+nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
 }
 
-.navbar ul li a:hover {
+nav ul li a:hover {
     text-decoration: underline;
-}
