@@ -209,6 +209,7 @@ body::before {
     z-index: -1; /* Coloca la capa detrás del contenido */
 }
 
+
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
@@ -236,12 +237,15 @@ header {
     justify-content: space-between;
     width: 100%;
     max-width: 900px;
+    padding: 10px 0;
 }
 
 /* Estilos para los logos */
 .logo-container {
     width: 80px;
     height: auto;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -288,3 +292,5 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
+}
+
