@@ -194,6 +194,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+    position: relative;
 }
 
 /* Capa de transparencia para el fondo sin afectar el contenido */
@@ -211,14 +212,23 @@ body::before {
 /* Estilos para el header */
 header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     background-color: #333; /* Color sólido para el header */
     padding: 10px 20px;
     color: white;
+    position: relative;
 }
 
-/* Estilos para los logos y el título centrado */
+/* Contenedor de logos y título */
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Estilos para los logos */
 .logo-container {
     width: 80px; /* Tamaño del logo */
     height: auto;
@@ -230,16 +240,40 @@ header {
     max-height: 60px; /* Ajusta la altura máxima */
 }
 
-/* Centrar el título en el índice con los logos a los costados */
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1; /* Permite que el título se expanda en el centro */
+/* Estilos para el título "Marco Normativo" */
+h1 {
+    font-size: 24px;
     text-align: center;
+    flex-grow: 1;
+    margin: 0;
 }
 
-h1 {
-    font-size: 24px; /* Ajusta el tamaño del título si es necesario */
-    margin: 0 20px; /* Espaciado a los lados para separar de los logos */
+/* Estilos para la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5px; /* Espacio entre el título y la barra */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; /* Espaciado entre los enlaces */
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
 }
